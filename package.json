@@ -1,0 +1,21 @@
+{
+  "name": "momogram",
+  "version": "1.0.0",
+  "description": "Instagram clone with Express + Prisma + React and React Native",
+  "repository": "https://github.com/callmedevmomo/momogram",
+  "author": "momo <callmedevmomo@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/core": "^7.4.4",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.4.4",
+    "dotenv": "^8.0.0",
+    "graphql-yoga": "^1.17.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.0"
+  },
+  "scripts": {
+    "dev": "nodemon --exec babel-node src/server.js"
+  }
+}
