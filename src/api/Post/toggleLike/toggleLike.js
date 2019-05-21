@@ -1,33 +1,42 @@
 import { isAuthenticated } from "../../../middlewares";
-import { IdStrategy } from "prisma-datamodel";
-
+import { prisma } from "../../../../generated/prisma-client";
 export default {
   Mutation: {
     toggleLike: async (_, args, { request }) => {
       isAuthenticated(request);
       const { postId } = args;
       const { user } = request; //get user
+      const filterOptions = {
+        AND: [
+          {
+            user: { id: user.id }
+          },
+          {
+            post: { id: postId }
+          }
+        ]
+      };
       try {
-        const existingLike = await prisma.$exists.like({
-          AND: [
-            {
-              user: { id: user.id }
-            },
-            {
-              post: { id: postId }
-            }
-          ]
-        });
+        const existingLike = await prisma.$exists.like(filterOptions);
         if (existingLike) {
-          //TO Do
+          await prisma.deleteManyLikes(filterOptions);
         } else {
-          const newLike = await prisma.createLike({
-            connect: { id: user.id },
-            post: { connect: { id: postId } }
+          await prisma.createLike({
+            user: {
+              connect: {
+                id: user.id
+              }
+            },
+            post: {
+              connect: {
+                id: postId
+              }
+            }
           });
         }
         return true;
-      } catch {
+      } catch (error) {
+        console.log(error);
         return false;
       }
     }
