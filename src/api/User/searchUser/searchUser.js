@@ -5,7 +5,7 @@ export default {
     searchUser: async (_, args) => {
       const { term } = args;
 
-      console.log(term.length);
+      // console.log(term.length);
       if (term.length > 0) {
         const users = await prisma.users({
           where: {
@@ -16,7 +16,7 @@ export default {
             ]
           }
         });
-        console.log(users);
+        // console.log(users);
         return users;
       } else {
         throw Error("Please enter a Something to search");
