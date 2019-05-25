@@ -21,12 +21,12 @@ type Post {
   caption: String!
   user: User @relation(name: "PostsOfUser")
   likes: [Like!]! @relation(name: "LikeOfPost", onDelete: CASCADE)
-  comments: [Comment!]! @relation(name: "CommentOfPost", onDelete: CASCADE)
+  comments: [Comment!]! @relation(name: "CommentsOfPost", onDelete: CASCADE)
 }
 
 type Like {
   id: ID! @id
-  user: User @relation(name: "LikesOfPost")
+  user: User @relation(name: "LikesOfUser")
   post: Post @relation(name: "LikesOfPost")
 }
 
@@ -34,7 +34,7 @@ type Comment {
   id: ID! @id
   text: String!
   user: User @relation(name: "CommentsOfUser")
-  post: Post @relation(name: "CommentOfPost")
+  post: Post @relation(name: "CommentsOfPost")
 }
 type File {
   id: ID! @id
