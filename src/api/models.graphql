@@ -5,8 +5,11 @@ type User {
   email: String!
   firstName: String
   lastName: String
+  # fullName depend on first && lastName
   fullName: String
+  # am I following?
   isFollowing: Boolean!
+  # myProfile
   isSelf: Boolean!
   bio: String
   following: [User!]!
@@ -29,6 +32,7 @@ type Post {
   user: User!
   likes: [Like!]!
   comments: [Comment!]!
+  # seeFullPost or seeUser
   isLiked: Boolean!
   likeCount: Int!
   createdAt: String
