@@ -10,6 +10,7 @@ export default {
         // 입력한  secret이 Prisma 관리 패널에 있는 secret과 같다면..? Prisma 패널을 업데이트함
         await prisma.updateUser({
           where: { id: user.id },
+          //login 이후 loginSecret 초기화
           data: {
             loginSecret: ""
           }
