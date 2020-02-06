@@ -1003,3 +1003,5 @@ export const nouns = [
   "science",
   "bone"
 ];
+
+// CMD + SHIFT + I
