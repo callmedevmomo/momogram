@@ -1,7 +1,7 @@
 # momogram
 Instagram clone with Express + Prisma + React and React Native
 
-##User Stories
+## User Stories
 
 - [x] Create account
 - [x] Request Secret
