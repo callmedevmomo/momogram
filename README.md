@@ -22,6 +22,6 @@ Instagram clone with Express + Prisma + React and React Native
 - [x] Send private Message
 - [x] See rooms
 - [x] See room
-- [x] Receive Message (Realtime)
+- [x] Receive Message (Realtime) with Subscription mutation 
 
 
